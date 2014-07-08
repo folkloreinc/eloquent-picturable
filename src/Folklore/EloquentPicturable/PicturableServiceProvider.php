@@ -3,7 +3,7 @@
 use Illuminate\Support\ServiceProvider;
 use Folklore\EloquentPicturable\Models\Picture;
 
-class EloquentPicturableServiceProvider extends ServiceProvider {
+class PicturableServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -19,7 +19,7 @@ class EloquentPicturableServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('folklore/eloquent-picturable');
+		$this->package('folklore/eloquent-picturable','eloquent-picturable');
 		
 		$app = $this->app;
 		

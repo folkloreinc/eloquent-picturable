@@ -2,7 +2,7 @@
 
 use Folklore\EloquentPicturable\Models\Picture;
 
-trait Picturable {
+trait PicturableTrait {
 
     protected $picturable_order = true;
 

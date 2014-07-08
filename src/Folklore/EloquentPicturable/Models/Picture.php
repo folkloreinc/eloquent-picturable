@@ -62,7 +62,7 @@ class Picture extends Model {
 		$file->move($destinationPath.'/'.$folder, $filename);
 
 		//Fix permissions problem in local
-		if($this->app->environment() == 'local') {
+		if(\App::environment() == 'local') {
 			chmod($destinationPath.'/'.$folder.'/'.$filename,0777);
 		}
 
