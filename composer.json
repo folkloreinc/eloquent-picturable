@@ -1,0 +1,21 @@
+{
+    "name": "folklore/eloquent-picturable",
+    "description": "",
+    "authors": [
+        {
+            "name": "Folklore",
+            "email": "info@atelierfolklore.ca"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*",
+        "folklore/image": "0.1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Folklore\\EloquentPicturable": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
