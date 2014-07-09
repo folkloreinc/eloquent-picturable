@@ -23,6 +23,9 @@
         "folklore/image": "0.1.*"
     },
     "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
         "psr-0": {
             "Folklore\\EloquentPicturable": "src/"
         }
