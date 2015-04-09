@@ -20,7 +20,7 @@
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "4.2.*",
-        "folklore/image": "0.1.*"
+        "folklore/image": "~0.2"
     },
     "autoload": {
         "classmap": [

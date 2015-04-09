@@ -19,8 +19,10 @@ class PicturableServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('folklore/eloquent-picturable','eloquent-picturable');
-		
+		$this->publishes([
+			__DIR__.'/../../migrations/' => database_path('/migrations')
+		], 'migrations');
+	
 		$app = $this->app;
 		
 		//Delete files when model is deleted

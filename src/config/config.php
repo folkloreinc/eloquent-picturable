@@ -6,7 +6,7 @@ return array(
 	
 	'database_prefix' => '',
 
-	'upload_path' => public_path().'/files/photos',
+	'upload_path' => public_path('files/photos'),
 
 	'mime_to_extension' => array(
 		'image/jpeg' => 'jpg',
