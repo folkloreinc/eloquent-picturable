@@ -19,8 +19,19 @@ class PicturableServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
+		$configPath = __DIR__.'/../../config/config.php';
+		$migrationsPath = __DIR__.'/../../migrations/';
+		
+		//Merge config
+		$this->mergeConfigFrom($configPath, 'picturable');
+		
+		//Publish
 		$this->publishes([
-			__DIR__.'/../../migrations/' => database_path('/migrations')
+			$configPath => config_path('/picturable.php')
+		], 'config');
+		
+		$this->publishes([
+			$migrationsPath => database_path('/migrations')
 		], 'migrations');
 	
 		$app = $this->app;
@@ -28,7 +39,7 @@ class PicturableServiceProvider extends ServiceProvider {
 		//Delete files when model is deleted
 		Picture::deleting(function($item) use ($app)
 		{
-			$path = $app['config']->get('eloquent-picturable::upload_path');
+			$path = $app['config']->get('picturable.upload_path');
 
 			$path = $path.'/'.$item->filename;
 			if(file_exists($path)) {
