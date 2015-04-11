@@ -47,8 +47,8 @@ class Picture extends Model {
 		$item->save();
 
 		//Get destination
-		$extensions = \Config::get('eloquent-picturable::mime_to_extension');
-		$destinationPath = \Config::get('eloquent-picturable::upload_path');
+		$extensions = config('picturable.mime_to_extension');
+		$destinationPath = config('picturable.upload_path');
 		$folder = date('Y-m-d');
 		$extension = $extensions[$mime];
 		$filename = $item->id.'.'.$extension;
@@ -62,8 +62,9 @@ class Picture extends Model {
 		$file->move($destinationPath.'/'.$folder, $filename);
 
 		//Fix permissions problem in local
-		if(\App::environment() == 'local') {
-			chmod($destinationPath.'/'.$folder.'/'.$filename,0777);
+		if(app()->environment() == 'local')
+        {
+			chmod($destinationPath.'/'.$folder.'/'.$filename, 0777);
 		}
 
 		//Save filename
